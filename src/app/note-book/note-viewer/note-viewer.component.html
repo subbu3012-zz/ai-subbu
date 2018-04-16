@@ -1,0 +1,17 @@
+<div *ngIf="selectedNoteData.$key">
+    <div class="row">
+        <p style="margin:0;">{{selectedNoteData.noteTitle}}</p>
+    </div>
+    <div class="card p-3">
+        <div class="card-block">
+            <textarea #editableArea autofocus [(ngModel)]="selectedNoteData.noteDesc" (keydown)="saveSelectedNote()" placeholder="Write here.."
+                class="form-control" rows="20"></textarea>
+            <footer>
+                <small class="text-muted">Last Saved at {{selectedNoteData.noteCreatedDate | date:'mediumTime'}}</small>
+            </footer>
+        </div>
+    </div>
+</div>
+<div *ngIf="!selectedNoteData.$key">
+    No Note is Selected
+</div>

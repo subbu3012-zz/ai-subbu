@@ -1,0 +1,15 @@
+.card-title{
+    margin: 0;
+}
+
+.card-text{
+    margin: 0;
+    font-size:0.9rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card{
+    cursor: pointer;
+}
