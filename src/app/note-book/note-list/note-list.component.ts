@@ -22,6 +22,7 @@ export class NoteListComponent implements OnInit {
 	public noteListData: ANoteMaster[] = [];
 	@select() selectedNote;
 	public selectedNoteData: ANoteMaster;
+	public searchKeyword: string = "";
 
 	constructor(private ngRedux: NgRedux<NoteAppState>) {
 
