@@ -42,6 +42,7 @@ export class NoteListComponent implements OnInit {
 	public setNoteToView(note: ANoteMaster) {
 		this.ngRedux.dispatch({ type: SET_NOTE_TO_VIEW, data: note })
 		this.onNoteSelected.emit(true);
+		this.searchKeyword = "";
 	}
 
 	public addNewNote() {
