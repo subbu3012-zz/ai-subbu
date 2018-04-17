@@ -20,6 +20,8 @@ export class NoteViwerComponent implements OnInit {
 	@select() selectedNote;
 	public selectedNoteData: ANoteMaster;
 	@ViewChild('editableArea') editableArea: ElementRef;
+	@ViewChild('editableTitle') editableTitle: ElementRef;
+	public isTitleEditable: boolean = false;
 
 	constructor(private ngRedux: NgRedux<NoteAppState>) {
 
@@ -34,5 +36,10 @@ export class NoteViwerComponent implements OnInit {
 
 	public saveSelectedNote() {
 		this.ngRedux.dispatch({ type: UPDATE_NOTE, data: this.selectedNoteData })
+	}
+
+	public setTitleEditable(value: boolean) {
+		this.isTitleEditable = value;
+		setTimeout(() => { this.isTitleEditable && this.editableTitle && this.editableTitle.nativeElement.focus(); }, 100);
 	}
 }

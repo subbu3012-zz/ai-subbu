@@ -7,19 +7,19 @@ export class ANoteMaster {
 
 export const ANOTEDATA: ANoteMaster[] = [
     {
-        $key: 1,
+        $key: 0,
         noteTitle: "First Note",
         noteDesc: "Description of first note",
         noteCreatedDate: new Date()
     },
     {
-        $key: 2,
+        $key: 1,
         noteTitle: "Second Note",
         noteDesc: "Description of second note",
         noteCreatedDate: new Date()
     },
     {
-        $key: 3,
+        $key: 2,
         noteTitle: "Third Note",
         noteDesc: "Description of third note",
         noteCreatedDate: new Date()

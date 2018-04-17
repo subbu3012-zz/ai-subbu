@@ -18,10 +18,10 @@ export function noteReducer(noteAppState: NoteAppState, action: any): NoteAppSta
     switch (action.type) {
         case ADD_NOTE:
             let _newNote = new ANoteMaster();
-            _newNote.$key = noteAppState.noteList.length + 1;
-            _newNote.noteTitle = 'Note ' + _newNote.$key;
+            _newNote.$key = getUniqueId();
+            _newNote.noteTitle = 'New Note';
             noteAppState.noteList.push(_newNote);
-            noteAppState.selectedNote = noteAppState.noteList[_newNote.$key - 1];
+            noteAppState.selectedNote = noteAppState.noteList[getIndexOfNote(noteAppState.noteList, _newNote.$key)];
             return getNewNoteAppState(noteAppState);
         case UPDATE_NOTE: {
             let index = getIndexOfNote(noteAppState.noteList, action.data.$key);
@@ -49,9 +49,20 @@ function getIndexOfNote(noteList: ANoteMaster[], $key: number): number {
 }
 
 function getNewNoteAppState(noteAppState: NoteAppState) {
+    console.log(noteAppState)
     localStorage.setItem('noteAppState', window.btoa(JSON.stringify(noteAppState)));
     return Object.assign({}, noteAppState, {
         noteList: noteAppState.noteList,
         selectedNote: noteAppState.selectedNote
     })
+}
+
+function getUniqueId() {
+    var text = "";
+    var possible = "0123456789";
+
+    for (var i = 0; i < 10; i++)
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+    return +text;
 }

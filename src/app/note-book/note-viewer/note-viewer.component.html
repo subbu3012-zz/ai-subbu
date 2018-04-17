@@ -1,7 +1,9 @@
 <div class="container-fluid">
     <div *ngIf="selectedNoteData.$key">
-        <div class="row">
-            <p style="margin:0;">{{selectedNoteData.noteTitle}}</p>
+        <div style="margin-bottom:5px" class="row">
+            <p *ngIf="!isTitleEditable" (click)="setTitleEditable(true)" style="margin:0;">{{selectedNoteData.noteTitle}}</p>
+            <input #editableTitle *ngIf="isTitleEditable" (blur)="setTitleEditable(false)" tabindex="-1" style="height:26px;width:250px" (keydown)="saveSelectedNote()"
+                [(ngModel)]="selectedNoteData.noteTitle" type="text" class="form-control" placeholder="Search Notes">
         </div>
         <div class="card p-3">
             <div class="card-block">
