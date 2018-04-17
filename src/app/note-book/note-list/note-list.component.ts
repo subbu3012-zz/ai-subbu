@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, Input, ViewChild, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, AfterViewInit, Input, ViewChild, OnInit, ViewEncapsulation, Output, EventEmitter } from '@angular/core';
 import { FormsModule, FormControl } from '@angular/forms';
 import { noteReducer, INITIAL_NOTE_APP_STATE, NoteAppState } from './../note-book.store';
 import { NgRedux, select } from '@angular-redux/store';
@@ -18,6 +18,7 @@ import {
 
 
 export class NoteListComponent implements OnInit {
+	@Output('onNoteSelected') onNoteSelected: EventEmitter<any> = new EventEmitter<any>();
 	@select() noteList;
 	public noteListData: ANoteMaster[] = [];
 	@select() selectedNote;
@@ -40,6 +41,7 @@ export class NoteListComponent implements OnInit {
 
 	public setNoteToView(note: ANoteMaster) {
 		this.ngRedux.dispatch({ type: SET_NOTE_TO_VIEW, data: note })
+		this.onNoteSelected.emit(true);
 	}
 
 	public addNewNote() {

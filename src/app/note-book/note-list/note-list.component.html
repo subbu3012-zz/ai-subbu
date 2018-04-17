@@ -5,10 +5,10 @@
         </div>
     </div>
     <div class="col-1">
-        <mat-icon style="color:#4d4d4d" (click)="addNewNote()">note_add</mat-icon>
+        <mat-icon style="color:#4d4d4d;cursor:pointer" title="Add Note" (click)="addNewNote()">note_add</mat-icon>
     </div>
     <div class="col-1">
-        <mat-icon style="color:#4d4d4d" (click)="removeNote()">delete</mat-icon>
+        <mat-icon style="color:#4d4d4d;cursor:pointer" title="Remove Note" (click)="removeNote()">delete</mat-icon>
     </div>
 </div>
 <div *ngFor="let note of noteListData | searchNotes : searchKeyword">
