@@ -62,6 +62,8 @@ export class SearchNotesPipe implements PipeTransform {
 		if (!searchKeyword) {
 			return allNotes;
 		}
-		return allNotes.filter(note => note.noteTitle.includes(searchKeyword) || note.noteDesc.includes(searchKeyword));
+		return allNotes.filter(
+			note => note.noteTitle.toLowerCase().includes(searchKeyword.toLowerCase())
+				|| (note.noteDesc && note.noteDesc.toLowerCase().includes(searchKeyword.toLowerCase())));
 	}
 }
