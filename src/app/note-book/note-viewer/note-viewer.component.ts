@@ -28,7 +28,7 @@ export class NoteViwerComponent implements OnInit {
 	ngOnInit() {
 		this.ngRedux.select('selectedNote').subscribe(data => {
 			this.selectedNoteData = data as ANoteMaster;
-			this.editableArea && this.editableArea.nativeElement.focus();
+			// this.editableArea && this.editableArea.nativeElement.focus();
 		})
 	}
 
