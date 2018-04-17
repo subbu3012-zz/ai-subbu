@@ -23,28 +23,16 @@ export const ANOTEDATA: ANoteMaster[] = [
         noteTitle: "Third Note",
         noteDesc: "Description of third note",
         noteCreatedDate: new Date()
-    },
-    {
-        $key: 4,
-        noteTitle: "Fourth Note",
-        noteDesc: "Description of fourth note",
-        noteCreatedDate: new Date()
-    },
-    {
-        $key: 5,
-        noteTitle: "Fifth Note",
-        noteDesc: "Description of fifth note",
-        noteCreatedDate: new Date()
     }
 ]
 
 export const ASELECTEDNOTE: ANoteMaster =
     {
-        $key: 3,
-        noteTitle: "Third Note",
-        noteDesc: "Description of third note",
+        $key: 1,
+        noteTitle: "First Note",
+        noteDesc: "Description of first note",
         noteCreatedDate: new Date()
-    };
+    }
 
 export const ADD_NOTE = 'ADD_NOTE';
 export const REMOVE_NOTE = 'REMOVE_NOTE';
