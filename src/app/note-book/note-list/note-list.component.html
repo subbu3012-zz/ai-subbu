@@ -15,7 +15,7 @@
     <div [style.background-color]="note.$key == selectedNoteData.$key ? '#faefd1' : ''" (click)="setNoteToView(note)" class="card p-3">
         <div class="card-block">
             <h6 class="card-title">{{note.noteTitle}}</h6>
-            <p class="card-text">{{note.noteDesc | slice:0:35}} {{note.noteDesc.length > 35 ? '...' : ''}} </p>
+            <p class="card-text">{{note.noteDesc | slice:0:35}} {{note.noteDesc && note.noteDesc.length > 35 ? '...' : ''}} </p>
             <footer>
                 <small class="text-muted">{{note.noteCreatedDate | date:'long'}}</small>
             </footer>
