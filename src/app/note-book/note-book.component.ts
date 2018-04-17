@@ -4,6 +4,7 @@ import { noteReducer, INITIAL_NOTE_APP_STATE, NoteAppState } from './note-book.s
 import { NgRedux, select } from '@angular-redux/store';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { ChangeDetectorRef } from '@angular/core';
+import { MatSidenav } from '@angular/material';
 
 
 @Component({
@@ -15,6 +16,7 @@ import { ChangeDetectorRef } from '@angular/core';
 export class NoteBookComponent implements OnInit {
     mobileQuery: MediaQueryList;
     private _mobileQueryListener: () => void;
+    @ViewChild('snav') snavElementRef: MatSidenav;
 
     constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,
         ngRedux: NgRedux<NoteAppState>) {
@@ -29,7 +31,7 @@ export class NoteBookComponent implements OnInit {
     }
 
     ngOnInit() {
-
+        
     }
     ngOnDestroy(): void {
         this.mobileQuery.removeListener(this._mobileQueryListener);

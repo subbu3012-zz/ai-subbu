@@ -4,8 +4,8 @@
         <h1 class="note-book-app-name">My NoteBook</h1>
     </mat-toolbar>
     <mat-sidenav-container class="note-book-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
-        <mat-sidenav #snav class="note-book-sidenav" [mode]="mobileQuery.matches ? 'over' : 'side'" [opened]="true" [fixedInViewport]="mobileQuery.matches"
-            fixedTopGap="56">
+        <mat-sidenav #snav class="note-book-sidenav" [mode]="mobileQuery.matches ? 'over' : 'side'" [opened]="!mobileQuery.matches"
+            [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
             <mat-nav-list style="padding:1rem 1rem">
                 <app-note-list (onNoteSelected)="mobileQuery.matches && snav.close()"></app-note-list>
             </mat-nav-list>
